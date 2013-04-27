@@ -13,3 +13,7 @@
 # ActiveSupport::Inflector.inflections do |inflect|
 #   inflect.acronym 'RESTful'
 # end
+ActiveSupport::Inflector.inflections do |inflect|
+	inflect.irregular 'qualificacao', 'qualificacoes'
+	inflect.irregular 'receita', 'receitas'
+end
