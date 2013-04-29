@@ -1,6 +1,9 @@
 class Qualificacao < ActiveRecord::Base
 	attr_accessible :nota, :valor_gasto, :cliente_id, :restaurante_id
 
+	belongs_to :cliente
+	belongs_to :restaurante
+
 	validates_presence_of :nota, message: " - deve ser preenchido"
 	validates_presence_of :valor_gasto, message: " - deve ser preenchido"
 
