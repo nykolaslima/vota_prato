@@ -19,9 +19,11 @@ class RestaurantesController < ApplicationController
 
 	def create
 		@restaurante = Restaurante.new params[:restaurante]
-		@restaurante.save
-
-		redirect_to action: :show, id: @restaurante
+		if @restaurante.save
+			redirect_to action: :show, id: @restaurante
+		else
+			render action: :new
+		end
 	end
 
 	def edit
@@ -30,9 +32,12 @@ class RestaurantesController < ApplicationController
 
 	def update
 		@restaurante = restaurante_by_id
-		@restaurante.update_attributes params[:restaurante]
-
-		redirect_to action: :show, id: @restaurante
+		
+		if @restaurante.update_attributes params[:restaurante]
+			redirect_to action: :show, id: @restaurante
+		else
+			render action: :edit
+		end
 	end
 
 private
