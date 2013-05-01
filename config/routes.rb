@@ -1,4 +1,7 @@
 VotaPrato::Application.routes.draw do
+  resources :qualificacoes
+
+
   resources :clientes
 
 
