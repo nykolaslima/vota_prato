@@ -1,15 +1,23 @@
 <%= form_for @qualificacao, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
-    <%= f.label :cliente_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.collection_select(:cliente_id, @clientes, :id, :nome, {prompt: true}) %>
-    </div>
+		<% if @qualificacao.cliente %>
+			<%= f.hidden_field 'cliente_id' %>
+		<% else %>    
+			<%= f.label :cliente_id, :class => 'control-label' %>
+		  <div class="controls">
+		    <%= f.collection_select(:cliente_id, @clientes, :id, :nome, {prompt: true}) %>
+		  </div>
+		<% end %>
   </div>
   <div class="control-group">
-    <%= f.label :restaurante_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.collection_select(:restaurante_id, @restaurantes, :id, :nome, {prompt: true}) %>
-    </div>
+		<% if @qualificacao.restaurante %>
+			<%= f.hidden_field 'restaurante_id' %>
+		<% else %>
+		  <%= f.label :restaurante_id, :class => 'control-label' %>
+		  <div class="controls">
+		    <%= f.collection_select(:restaurante_id, @restaurantes, :id, :nome, {prompt: true}) %>
+		  </div>
+		<% end %>
   </div>
   <div class="control-group">
     <%= f.label :nota, :class => 'control-label' %>

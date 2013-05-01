@@ -25,6 +25,13 @@ class QualificacoesController < ApplicationController
   # GET /qualificacoes/new.json
   def new
     @qualificacao = Qualificacao.new
+		
+		if params[:cliente]
+			@qualificacao.cliente = Cliente.find params[:cliente]
+		end
+		if params[:restaurante]
+			@qualificacao.restaurante = Restaurante.find params[:restaurante]
+		end
 
 		preparar_form
 
