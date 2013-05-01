@@ -1,10 +1,18 @@
 class RestaurantesController < ApplicationController
+	before_filter :set_restaurante_by_id,
+								only:[:show, :edit, :update]
+
 	def index
 		@restaurantes = Restaurante.order :nome
+
+		respond_to do |format|
+			format.html
+			format.xml {render xml: @restaurantes}
+			format.json {render json: @restaurantes}
+		end
 	end
 
 	def show
-		@restaurante = restaurante_by_id
 	end
 
 	def destroy
@@ -27,12 +35,9 @@ class RestaurantesController < ApplicationController
 	end
 
 	def edit
-		@restaurante = restaurante_by_id
 	end
 
 	def update
-		@restaurante = restaurante_by_id
-		
 		if @restaurante.update_attributes params[:restaurante]
 			redirect_to action: :show, id: @restaurante
 		else
@@ -41,7 +46,7 @@ class RestaurantesController < ApplicationController
 	end
 
 private
-	def restaurante_by_id
-		Restaurante.find(params[:id])
+	def set_restaurante_by_id
+		@restaurante = Restaurante.find(params[:id])
 	end
 end
