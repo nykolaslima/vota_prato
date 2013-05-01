@@ -21,7 +21,7 @@
         <td><%= qualificacao.cliente.nome %></td>
         <td><%= qualificacao.restaurante.nome %></td>
         <td><%= qualificacao.nota %></td>
-        <td><%= qualificacao.valor_gasto %></td>
+        <td><%= valor_formatado(qualificacao.valor_gasto) %></td>
         <td><%=l qualificacao.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
