@@ -10,6 +10,12 @@
   <dd><%= @restaurante.endereco %></dd>
   <dt><strong><%= model_class.human_attribute_name(:especialidade) %>:</strong></dt>
   <dd><%= @restaurante.especialidade %></dd>
+	<dt><strong>Nota Média</strong></dt>
+  <dd><%= @restaurante.qualificacoes.average :nota %></dd>
+	<dt><strong>Qualificacoes</strong></dt>
+  <dd><%= @restaurante.qualificacoes.count :nota %></dd>
+	<dt><strong>Preco Médio</strong></dt>
+  <dd><%= @restaurante.qualificacoes.average :valor_gasto %></dd>
 </dl>
 
 <div class="form-actions">
