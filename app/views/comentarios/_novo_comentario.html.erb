@@ -1,0 +1,15 @@
+<%= form_for Comentario.new do |f| %>
+	<%= f.hidden_field :comentavel_id, value: comentavel.id %>
+	<%= f.hidden_field :comentavel_type, value: comentavel.class %>
+
+	<div class="control-group">
+    <%= f.label :conteudo, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :conteudo, rows: 5, :class => 'text_area span5' %>
+    </div>
+  </div>
+
+	<div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+	</div>
+<% end %>
