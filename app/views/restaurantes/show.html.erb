@@ -16,6 +16,8 @@
   <dd><%= @restaurante.qualificacoes.count :nota %></dd>
 	<dt><strong>Preco Médio</strong></dt>
   <dd><%= @restaurante.qualificacoes.average :valor_gasto %></dd>
+	<dt><strong>Foto</strong></dt>
+  <dd><%= image_tag @restaurante.foto.url(:thumb) %></dd>
 </dl>
 
 <div class="form-actions">

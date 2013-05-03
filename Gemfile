@@ -6,6 +6,8 @@ gem 'twitter-bootstrap-rails'
 
 gem 'kaminari'
 
+gem 'paperclip'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
