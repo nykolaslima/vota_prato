@@ -8,6 +8,10 @@ gem 'kaminari'
 
 gem 'paperclip'
 
+group :development do
+	gem 'mailcatcher'
+end
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

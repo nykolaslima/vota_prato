@@ -55,6 +55,8 @@ class QualificacoesController < ApplicationController
 
     respond_to do |format|
       if @qualificacao.save
+				QualificacaoMailer.email_qualificacao(@qualificacao).deliver
+
         format.html { redirect_to @qualificacao, notice: 'Qualificacao was successfully created.' }
         format.json { render json: @qualificacao, status: :created, location: @qualificacao }
       else
