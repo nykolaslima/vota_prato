@@ -1,4 +1,4 @@
-<p>
+<p id="comentario_<%= comentario.id %>">
 	<%= comentario.conteudo %>
-	<%= link_to '(remover)', comentario, method: :delete %>
+	<%= link_to '(remover)', comentario, method: :delete, remote: true, class: "remove_comentario" %>
 </p>
