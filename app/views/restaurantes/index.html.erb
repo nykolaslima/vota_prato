@@ -34,6 +34,7 @@
     <% end %>
   </tbody>
 </table>
+<%= paginate @restaurantes %>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_restaurante_path,
